@@ -1,0 +1,103 @@
+import numpy as np
+import networkx as nx
+import matplotlib.pyplot as plt
+import random
+from deap import base, creator, tools, gp, algorithms
+import operator
+
+# 1️ Simulate Synthetic Cancer Detection Data
+def generate_data(n=100):
+    # Features: Tumor Size, Age, Gene Expression
+    X = np.random.rand(n, 3)
+    # Detection rule: tumor + 0.5*age - 0.3*gene > 0.8
+    y = (X[:, 0] + 0.5 * X[:, 1] - 0.3 * X[:, 2] > 0.8).astype(int)
+    return X, y
+
+X, y = generate_data()
+
+# 2️ Draw Causal Graph for Cancer Detection
+def draw_causal_graph():
+    G = nx.DiGraph()
+    edges = [("Tumor Size", "Detection"),
+             ("Age", "Detection"),
+             ("Gene Expression", "Detection")]
+    G.add_edges_from(edges)
+
+    plt.figure(figsize=(6, 4))
+    nx.draw(G, with_labels=True, node_color='lightgreen',
+            edge_color='black', node_size=2000, font_size=10)
+    plt.title("Causal Graph: What Affects Cancer Detection")
+    plt.show()
+
+draw_causal_graph()
+
+# 3️ Set Up Grammatical Evolution with DEAP
+pset = gp.PrimitiveSet("MAIN", 3)
+pset.renameArguments(ARG0='tumor', ARG1='age', ARG2='gene')
+
+# Add arithmetic operators
+pset.addPrimitive(operator.add, 2)
+pset.addPrimitive(operator.sub, 2)
+pset.addPrimitive(operator.mul, 2)
+pset.addPrimitive(operator.neg, 1)
+pset.addEphemeralConstant("rand", lambda: random.uniform(-1, 1))
+
+# Define individuals and fitness
+creator.create("FitnessMax", base.Fitness, weights=(1.0,))
+creator.create("Individual", gp.PrimitiveTree, fitness=creator.FitnessMax)
+
+toolbox = base.Toolbox()
+toolbox.register("expr", gp.genHalfAndHalf, pset=pset, min_=1, max_=2)
+toolbox.register("individual", tools.initIterate, creator.Individual, toolbox.expr)
+toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+toolbox.register("compile", gp.compile, pset=pset)
+
+# 4️ Simulate Clinician Feedback
+def clinician_score(expr_str):
+    # Penalize repeated use of 'age'
+    if expr_str.count("age") > 1:
+        return -0.5
+    return 0.5
+
+# 5️ Define Fitness Function: Accuracy + Causal Bonus + Feedback
+def evaluate(individual):
+    func = toolbox.compile(expr=individual)
+    predictions = [func(*x) for x in X]
+    pred_class = (np.array(predictions) > 0).astype(int)
+    acc = np.mean(pred_class == y)
+
+    expr_str = str(individual)
+
+    # Reward use of known causal variables: tumor, gene
+    causal_bonus = sum(var in expr_str for var in ['tumor', 'gene']) * 0.1
+    feedback = clinician_score(expr_str)
+
+    return acc + causal_bonus + feedback,
+
+# Register GE Operators
+toolbox.register("evaluate", evaluate)
+toolbox.register("select", tools.selTournament, tournsize=3)
+toolbox.register("mate", gp.cxOnePoint)
+toolbox.register("mutate", gp.mutUniform, expr=toolbox.expr, pset=pset)
+
+# Limit individual tree size
+toolbox.decorate("mate", gp.staticLimit(key=len, max_value=10))
+toolbox.decorate("mutate", gp.staticLimit(key=len, max_value=10))
+
+# 6 Run Evolution
+def run():
+    pop = toolbox.population(n=20)
+    hof = tools.HallOfFame(1)
+    stats = tools.Statistics(lambda ind: ind.fitness.values)
+    stats.register("avg", np.mean)
+    stats.register("max", np.max)
+
+    pop, log = algorithms.eaSimple(pop, toolbox, cxpb=0.5, mutpb=0.2,
+                                   ngen=10, stats=stats, halloffame=hof, verbose=True)
+    return hof[0]
+
+best_ind = run()
+
+# 7️ Output Best Rule
+print("\n Best evolved rule for cancer detection (with causal & clinician guidance):")
+print(best_ind)
