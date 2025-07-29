@@ -1,0 +1,169 @@
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv('clinical.csv', delimiter='\t')
+df_syn = df.drop(columns=['PATIENT_ID'])
+
+# Generate synthetic data by sampling each column independently (not recommended for complex tasks!)
+synthetic_data = df_syn.apply(lambda x: np.random.choice(x.dropna(), size=len(x)))
+
+# Add anonymized IDs
+synthetic_data.insert(0, 'PATIENT_ID', [f'SYNTH-{i:04d}' for i in range(len(df_syn))])
+
+# Save
+synthetic_data.to_csv('synthetic_clinical.csv', index=False, sep='\t')
+print(synthetic_data.head())
+..........................................................................................................................................
+
+import pandas as pd
+import numpy as np
+from ctgan import CTGAN
+import os
+
+def generate_synthetic_data_with_ctgan(input_filename='clinical.csv', output_filename='synthetic_clinical_ctgan.csv', num_epochs=300):
+    """
+    Generates a synthetic dataset using CTGAN from an input CSV file.
+
+    Args:
+        input_filename (str): The path to the original CSV dataset.
+        output_filename (str): The name of the CSV file to save the synthetic data.
+        num_epochs (int): Number of training epochs for the CTGAN model.
+                          More epochs can lead to better quality but take longer.
+    """
+    try:
+        # 1. Load the original dataset
+        df_original = pd.read_csv(input_filename, delimiter='\t')
+        print(f"Original dataset '{input_filename}' loaded successfully.")
+        print("Original data info:")
+        df_original.info()
+
+    except FileNotFoundError:
+        print(f"Error: The file '{input_filename}' was not found.")
+        print("Please make sure 'clinical.csv' is in the same directory as this script.")
+        return
+    except Exception as e:
+        print(f"An error occurred while reading the input file: {e}")
+        return
+
+    # Drop 'PATIENT_ID' for CTGAN training as it's a unique identifier and not generative
+    df_train = df_original.drop(columns=['PATIENT_ID'], errors='ignore').copy()
+
+    # 2. Handle Missing Values in Continuous Columns
+    # Identify numerical columns that should be treated as continuous by CTGAN
+    # These are typically float64 columns with many unique values.
+    continuous_features = [
+        'LYMPH_NODES_EXAMINED_POSITIVE',
+        'NPI',
+        'AGE_AT_DIAGNOSIS',
+        'NUM_CELLULARITY' # This one has many discrete int-like values but is float type and represents a count, so treating as continuous might be best for CTGAN's internal representation.
+    ]
+
+    print("\nHandling missing values in continuous columns by imputing with median...")
+    for col in continuous_features:
+        if col in df_train.columns:
+            if df_train[col].isnull().any():
+                median_val = df_train[col].median()
+                df_train[col].fillna(median_val, inplace=True)
+                print(f"  - Filled NaN in '{col}' with median: {median_val}")
+    print("Missing value imputation complete for continuous columns.")
+
+    # 3. Identify Categorical Features for CTGAN
+    categorical_features = []
+    for col in df_train.columns:
+        if df_train[col].dtype == 'object':
+            categorical_features.append(col)
+        # Explicitly add numerical columns that are genuinely categorical (low unique values)
+        # Even if they have float dtype, if their values are few and represent categories, treat them as such.
+        elif col not in continuous_features and df_train[col].nunique() < 20: # Heuristic: if numerical and < 20 unique values
+            categorical_features.append(col)
+            # For categorical numerical columns with NaNs, fill NaNs *before* CTGAN if it still complains.
+            # CTGAN handles NaNs in categorical columns better by treating NaN as another category,
+            # but explicit filling might be safer depending on the CTGAN version.
+            # For this dataset, let's allow CTGAN to handle them if they are in identified categorical_features.
+            
+    # Ensure COHORT and RFS_STATUS are treated as categorical if their unique values confirm this.
+    # From previous analysis: COHORT (1.0 to 5.0), RFS_STATUS (0.0, 1.0)
+    if 'COHORT' in df_train.columns and df_train['COHORT'].nunique() <= 5:
+        if 'COHORT' not in categorical_features:
+            categorical_features.append('COHORT')
+            # For COHORT, fill NaN with mode before passing to CTGAN, as it's discrete float.
+            if df_train['COHORT'].isnull().any():
+                mode_val = df_train['COHORT'].mode()[0]
+                df_train['COHORT'].fillna(mode_val, inplace=True)
+                print(f"  - Filled NaN in 'COHORT' with mode: {mode_val}")
+
+
+    if 'RFS_STATUS' in df_train.columns and df_train['RFS_STATUS'].nunique() <= 2:
+        if 'RFS_STATUS' not in categorical_features:
+            categorical_features.append('RFS_STATUS')
+            # For RFS_STATUS, fill NaN with mode as it's binary.
+            if df_train['RFS_STATUS'].isnull().any():
+                mode_val = df_train['RFS_STATUS'].mode()[0]
+                df_train['RFS_STATUS'].fillna(mode_val, inplace=True)
+                print(f"  - Filled NaN in 'RFS_STATUS' with mode: {mode_val}")
+
+    # Remove any continuous features mistakenly added to categorical_features
+    categorical_features = [col for col in categorical_features if col not in continuous_features]
+    
+    # CTGAN expects string representation for categorical columns in some cases,
+    # or at least consistent types. Let's convert relevant numerical categories to object type.
+    for col in ['COHORT', 'RFS_STATUS']: # Add other numerical categories if needed
+        if col in df_train.columns and col in categorical_features:
+            df_train[col] = df_train[col].astype(str)
+            # Also handle potential NaNs that might have been converted to 'nan' string
+            df_train[col].replace('nan', np.nan, inplace=True)
+            # Then fill NaNs in these converted categorical columns for CTGAN if needed
+            if df_train[col].isnull().any():
+                df_train[col].fillna('Missing', inplace=True) # Or a suitable placeholder
+                print(f"  - Converted '{col}' to string and filled remaining NaNs for CTGAN.")
+
+
+    print(f"\nFinal identified categorical features for CTGAN: {categorical_features}")
+
+    # 4. Instantiate and train the CTGAN model
+    print(f"\nTraining CTGAN model for {num_epochs} epochs...")
+    ctgan = CTGAN(epochs=num_epochs, verbose=True) # Set verbose=True to see training progress
+    ctgan.fit(df_train, categorical_features)
+    print("CTGAN training complete.")
+
+    # 5. Generate synthetic data
+    print("\nGenerating synthetic data...")
+    num_synthetic_samples = len(df_original)
+    synthetic_data = ctgan.sample(num_synthetic_samples)
+    print(f"Generated {num_synthetic_samples} synthetic samples.")
+
+    # 6. Add back synthetic PATIENT_ID and ensure column order
+    synthetic_patient_ids = [f'SYN-CTGAN-{i+1:04d}' for i in range(num_synthetic_samples)]
+    synthetic_data.insert(0, 'PATIENT_ID', synthetic_patient_ids)
+
+    # Ensure columns order matches original
+    # CTGAN might also change dtypes (e.g., float to object for some categoricals)
+    # Reconvert if necessary to match original dtypes for consistency in the output file
+    for col in df_original.columns:
+        if col in synthetic_data.columns and df_original[col].dtype == 'float64' and synthetic_data[col].dtype == 'object':
+            # Attempt to convert back to numeric, coercing errors to NaN
+            synthetic_data[col] = pd.to_numeric(synthetic_data[col], errors='coerce')
+
+    synthetic_data = synthetic_data[df_original.columns]
+
+    # 7. Save the synthetic data to a new CSV file
+    output_dir = os.path.dirname(output_filename)
+    if output_dir and not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
+    synthetic_data.to_csv(output_filename, index=False, sep='\t')
+    print(f"\nSynthetic dataset saved to '{output_filename}'")
+
+    print("\nFirst 5 rows of the synthetic data:")
+    print(synthetic_data.head())
+    print("\nInfo of the synthetic data:")
+    synthetic_data.info()
+
+if __name__ == "__main__":
+    # Make sure 'clinical.csv' is in the same directory as this script.
+    # Adjust num_epochs as needed, higher values generally produce better quality but take longer.
+    generate_synthetic_data_with_ctgan(
+        input_filename='clinical.csv',
+        output_filename='synthetic_clinical_ctgan.csv',
+        num_epochs=500
+    )
