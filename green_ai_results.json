@@ -1,0 +1,812 @@
+[
+  {
+    "run_id": 1,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.027870691772130165,
+    "carbon_kg": 0.027870691772130165,
+    "duration_seconds": 2226.49688911438,
+    "energy_adjusted_accuracy": 0.997212930822787,
+    "carbon_efficiency_score": 35.879984902275346,
+    "pareto_rank": 1,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 84.1,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 2,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.078865073934517,
+    "carbon_kg": 0.078865073934517,
+    "duration_seconds": 6299.561217308044,
+    "energy_adjusted_accuracy": 0.9921134926065484,
+    "carbon_efficiency_score": 12.679884137689605,
+    "pareto_rank": 25,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 86.6,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 3,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.6195502574416857,
+    "carbon_kg": 0.6195502574416857,
+    "duration_seconds": 49481.95142912865,
+    "energy_adjusted_accuracy": 0.9380449742558314,
+    "carbon_efficiency_score": 1.614074060963688,
+    "pareto_rank": 28,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 90.8,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 4,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.03229406203801394,
+    "carbon_kg": 0.03229406203801394,
+    "duration_seconds": 2579.8947846889496,
+    "energy_adjusted_accuracy": 0.9967705937961986,
+    "carbon_efficiency_score": 30.96544494225847,
+    "pareto_rank": 11,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 89.6,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 5,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.02997492468804557,
+    "carbon_kg": 0.02997492468804557,
+    "duration_seconds": 2395.1691088676453,
+    "energy_adjusted_accuracy": 0.9970025075311955,
+    "carbon_efficiency_score": 33.36121809836654,
+    "pareto_rank": 4,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 94.7,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 6,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.0322109662572044,
+    "carbon_kg": 0.0322109662572044,
+    "duration_seconds": 2574.394938468933,
+    "energy_adjusted_accuracy": 0.9967789033742795,
+    "carbon_efficiency_score": 31.04532760721939,
+    "pareto_rank": 9,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 90.1,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 7,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.028819728236147236,
+    "carbon_kg": 0.028819728236147236,
+    "duration_seconds": 2302.6600980758667,
+    "energy_adjusted_accuracy": 0.9971180271763853,
+    "carbon_efficiency_score": 34.69845349706479,
+    "pareto_rank": 2,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 88.7,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 8,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.059501119432723334,
+    "carbon_kg": 0.059501119432723334,
+    "duration_seconds": 4753.071934938431,
+    "energy_adjusted_accuracy": 0.9940498880567277,
+    "carbon_efficiency_score": 16.80640649342201,
+    "pareto_rank": 20,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 84.9,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 9,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.03017485563055796,
+    "carbon_kg": 0.03017485563055796,
+    "duration_seconds": 2410.919011592865,
+    "energy_adjusted_accuracy": 0.9969825144369442,
+    "carbon_efficiency_score": 33.140175126051105,
+    "pareto_rank": 5,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 86.8,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 10,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.029702782935990192,
+    "carbon_kg": 0.029702782935990192,
+    "duration_seconds": 2373.628302335739,
+    "energy_adjusted_accuracy": 0.997029721706401,
+    "carbon_efficiency_score": 33.66687903133556,
+    "pareto_rank": 3,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 91.2,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 11,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.031238390803091824,
+    "carbon_kg": 0.031238390803091824,
+    "duration_seconds": 2496.755944252014,
+    "energy_adjusted_accuracy": 0.9968761609196908,
+    "carbon_efficiency_score": 32.0118922355317,
+    "pareto_rank": 6,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 85.5,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 12,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.03290087532412743,
+    "carbon_kg": 0.03290087532412743,
+    "duration_seconds": 2629.766278743744,
+    "energy_adjusted_accuracy": 0.9967099124675872,
+    "carbon_efficiency_score": 30.3943281188833,
+    "pareto_rank": 12,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 84.5,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 13,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.06277724200082808,
+    "carbon_kg": 0.06277724200082808,
+    "duration_seconds": 5016.693453550339,
+    "energy_adjusted_accuracy": 0.9937222757999172,
+    "carbon_efficiency_score": 15.929339488772209,
+    "pareto_rank": 21,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 92.5,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 14,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.0338629023973627,
+    "carbon_kg": 0.0338629023973627,
+    "duration_seconds": 2706.7626168727875,
+    "energy_adjusted_accuracy": 0.9966137097602638,
+    "carbon_efficiency_score": 29.53084139881293,
+    "pareto_rank": 14,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 90.1,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 15,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.9278833877672076,
+    "carbon_kg": 0.9278833877672076,
+    "duration_seconds": 74107.82389092445,
+    "energy_adjusted_accuracy": 0.9072116612232792,
+    "carbon_efficiency_score": 1.077721633109877,
+    "pareto_rank": 30,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 92.0,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 16,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.12468648338462889,
+    "carbon_kg": 0.12468648338462889,
+    "duration_seconds": 9960.369891166687,
+    "energy_adjusted_accuracy": 0.9875313516615372,
+    "carbon_efficiency_score": 8.020115515771119,
+    "pareto_rank": 26,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 85.5,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 17,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.03224135848816009,
+    "carbon_kg": 0.03224135848816009,
+    "duration_seconds": 2577.0362162590027,
+    "energy_adjusted_accuracy": 0.996775864151184,
+    "carbon_efficiency_score": 31.016062811597322,
+    "pareto_rank": 10,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 85.9,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 18,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.0493058020496139,
+    "carbon_kg": 0.0493058020496139,
+    "duration_seconds": 3940.707585811615,
+    "energy_adjusted_accuracy": 0.9950694197950386,
+    "carbon_efficiency_score": 20.281588746771654,
+    "pareto_rank": 18,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 89.4,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 19,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.03497508353359905,
+    "carbon_kg": 0.03497508353359905,
+    "duration_seconds": 2795.449904203415,
+    "energy_adjusted_accuracy": 0.9965024916466401,
+    "carbon_efficiency_score": 28.591783034323367,
+    "pareto_rank": 16,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 90.1,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 20,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.031661996262152985,
+    "carbon_kg": 0.031661996262152985,
+    "duration_seconds": 2530.4295551776886,
+    "energy_adjusted_accuracy": 0.9968338003737847,
+    "carbon_efficiency_score": 31.58360552254076,
+    "pareto_rank": 7,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 87.7,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 21,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.03167088203423127,
+    "carbon_kg": 0.03167088203423127,
+    "duration_seconds": 2531.1984107494354,
+    "energy_adjusted_accuracy": 0.9968329117965768,
+    "carbon_efficiency_score": 31.574744237282577,
+    "pareto_rank": 8,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 81.8,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 22,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.04642141685935,
+    "carbon_kg": 0.04642141685935,
+    "duration_seconds": 3709.3796892166138,
+    "energy_adjusted_accuracy": 0.995357858314065,
+    "carbon_efficiency_score": 21.541781092762665,
+    "pareto_rank": 17,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 83.8,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 23,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.7450972258463733,
+    "carbon_kg": 0.7450972258463733,
+    "duration_seconds": 59511.691536188126,
+    "energy_adjusted_accuracy": 0.9254902774153627,
+    "carbon_efficiency_score": 1.3421067282381527,
+    "pareto_rank": 29,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 94.3,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 24,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.03450017790227267,
+    "carbon_kg": 0.03450017790227267,
+    "duration_seconds": 2757.852287530899,
+    "energy_adjusted_accuracy": 0.9965499822097728,
+    "carbon_efficiency_score": 28.985357780839898,
+    "pareto_rank": 15,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 91.8,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 25,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.03341166195924798,
+    "carbon_kg": 0.03341166195924798,
+    "duration_seconds": 2670.7279846668243,
+    "energy_adjusted_accuracy": 0.9966588338040752,
+    "carbon_efficiency_score": 29.92966950341155,
+    "pareto_rank": 13,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 89.4,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 26,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.06646933568264457,
+    "carbon_kg": 0.06646933568264457,
+    "duration_seconds": 5319.315807580948,
+    "energy_adjusted_accuracy": 0.9933530664317356,
+    "carbon_efficiency_score": 15.044531282431702,
+    "pareto_rank": 22,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 93.6,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 27,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.07505011903669993,
+    "carbon_kg": 0.07505011903669993,
+    "duration_seconds": 5999.033340454102,
+    "energy_adjusted_accuracy": 0.99249498809633,
+    "carbon_efficiency_score": 13.324429232563832,
+    "pareto_rank": 24,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 91.2,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 28,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.07234305910259793,
+    "carbon_kg": 0.07234305910259793,
+    "duration_seconds": 5783.93096613884,
+    "energy_adjusted_accuracy": 0.9927656940897402,
+    "carbon_efficiency_score": 13.823026181154242,
+    "pareto_rank": 23,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 89.9,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 29,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.46902007260048845,
+    "carbon_kg": 0.46902007260048845,
+    "duration_seconds": 37463.50982427597,
+    "energy_adjusted_accuracy": 0.9530979927399511,
+    "carbon_efficiency_score": 2.13210491068215,
+    "pareto_rank": 27,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 95.5,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  },
+  {
+    "run_id": 30,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "n_selected_features": 1,
+    "selected_feature_names": [
+      "Time to Death (days)"
+    ],
+    "energy_kwh": 0.05814472654317187,
+    "carbon_kg": 0.05814472654317187,
+    "duration_seconds": 4646.229751110077,
+    "energy_adjusted_accuracy": 0.9941855273456828,
+    "carbon_efficiency_score": 17.198464236606394,
+    "pareto_rank": 19,
+    "peak_cpu_usage": 100.0,
+    "peak_memory_usage": 91.2,
+    "peak_gpu_usage": 0.0,
+    "hyperparameters": {
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.5,
+      "energy_weight": 0.1
+    }
+  }
+]
